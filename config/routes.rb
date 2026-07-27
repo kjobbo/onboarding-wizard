@@ -17,6 +17,8 @@ Rails.application.routes.draw do
       resource :personal_details, only: %i[show update]
       resource :address, only: %i[show update]
       resource :preferences, only: %i[show update]
+      resource :summary, only: :show
+      resource :completion, only: :create
     end
   end
 end

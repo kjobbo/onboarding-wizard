@@ -38,10 +38,6 @@ en:
       sign_up: "Sign up"
       reassurance: "Takes about two minutes. No payment details required."
 
-    show:
-      heading: "Welcome!"
-      description_html: "Wizard steps are coming next. You are on the %{step} step."
-
     personal_details:
       show:
         title: "Personal details — Onboarding Wizard"
@@ -70,6 +66,20 @@ en:
         newsletter_label: "Email me product news and tips"
         back: "Back"
         continue: "Continue"
+
+    summaries:
+      show:
+        title: "Summary — Onboarding Wizard"
+        step_badge: "Step 4 of 4"
+        heading: "Check everything looks right"
+        intro: "Here is everything you have told us. Edit anything that needs a tweak, then confirm."
+        edit: "Edit"
+        newsletter_yes: "Subscribed to product news"
+        newsletter_no: "Not subscribed to product news"
+        back: "Back"
+        confirm: "Confirm and finish"
+        completed_notice: "Your onboarding is complete."
+        completed_heading: "You're all set!"
 
     addresses:
       show:
