@@ -18,6 +18,10 @@ en:
         city: "City"
         postcode: "Postcode"
         country: "Country"
+      onboardings/preferences:
+        plan: "Plan"
+        billing_period: "Billing period"
+        newsletter_opt_in: "Newsletter"
 
   onboardings:
     steps:
@@ -44,6 +48,27 @@ en:
         step_badge: "Step 1 of 4"
         heading: "Tell us about yourself"
         intro: "We just need a few basics to get your account started."
+        continue: "Continue"
+
+    plans:
+      starter: "Starter"
+      standard: "Standard"
+      pro: "Pro"
+
+    billing_periods:
+      monthly: "Monthly"
+      annual: "Annual"
+
+    preferences:
+      show:
+        title: "Preferences — Onboarding Wizard"
+        step_badge: "Step 3 of 4"
+        heading: "Choose your plan"
+        intro: "Pick what suits you today — you can change any of this later."
+        plan_legend: "Plan"
+        billing_period_legend: "Billing period"
+        newsletter_label: "Email me product news and tips"
+        back: "Back"
         continue: "Continue"
 
     addresses:

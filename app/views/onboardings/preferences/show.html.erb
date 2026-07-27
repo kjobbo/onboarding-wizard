@@ -1,0 +1,59 @@
+<% content_for :title, t(".title") %>
+
+<div class="w-full max-w-xl mx-auto">
+  <div class="bg-white rounded-2xl shadow-lg ring-1 ring-gray-100 px-8 py-10 sm:px-12">
+    <p class="text-sm font-semibold uppercase tracking-widest text-indigo-600"><%= t(".step_badge") %></p>
+    <h1 class="mt-2 text-3xl font-bold tracking-tight text-gray-900"><%= t(".heading") %></h1>
+    <p class="mt-2 text-gray-600"><%= t(".intro") %></p>
+
+    <%= form_with model: @preferences, scope: :preferences,
+                  url: onboarding_preferences_path, method: :patch,
+                  class: "mt-8 space-y-8" do |form| %>
+      <fieldset>
+        <legend class="text-sm font-medium text-gray-900"><%= t(".plan_legend") %></legend>
+        <div class="mt-2 grid grid-cols-1 gap-3 sm:grid-cols-3">
+          <% Onboardings::Preferences::PLANS.each do |plan| %>
+            <label class="flex items-center gap-3 rounded-lg border border-gray-300 px-4 py-3
+                          cursor-pointer transition has-checked:border-indigo-600
+                          has-checked:ring-1 has-checked:ring-indigo-600">
+              <%= form.radio_button :plan, plan, class: "accent-indigo-600" %>
+              <span class="text-sm font-medium text-gray-900"><%= t("onboardings.plans.#{plan}") %></span>
+            </label>
+          <% end %>
+        </div>
+        <% if @preferences.errors.key?(:plan) %>
+          <p class="mt-1 text-sm text-red-600"><%= @preferences.errors.full_messages_for(:plan).first %></p>
+        <% end %>
+      </fieldset>
+
+      <fieldset>
+        <legend class="text-sm font-medium text-gray-900"><%= t(".billing_period_legend") %></legend>
+        <div class="mt-2 grid grid-cols-1 gap-3 sm:grid-cols-2">
+          <% Onboardings::Preferences::BILLING_PERIODS.each do |period| %>
+            <label class="flex items-center gap-3 rounded-lg border border-gray-300 px-4 py-3
+                          cursor-pointer transition has-checked:border-indigo-600
+                          has-checked:ring-1 has-checked:ring-indigo-600">
+              <%= form.radio_button :billing_period, period, class: "accent-indigo-600" %>
+              <span class="text-sm font-medium text-gray-900"><%= t("onboardings.billing_periods.#{period}") %></span>
+            </label>
+          <% end %>
+        </div>
+        <% if @preferences.errors.key?(:billing_period) %>
+          <p class="mt-1 text-sm text-red-600"><%= @preferences.errors.full_messages_for(:billing_period).first %></p>
+        <% end %>
+      </fieldset>
+
+      <label class="flex items-center gap-3 text-sm text-gray-700">
+        <%= form.check_box :newsletter_opt_in, class: "accent-indigo-600" %>
+        <%= t(".newsletter_label") %>
+      </label>
+
+      <div class="flex items-center justify-between gap-4 pt-2">
+        <%= link_to t(".back"), onboarding_address_path,
+              class: "text-sm font-semibold text-gray-600 hover:text-gray-900" %>
+
+        <%= form.submit t(".continue"), class: "btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+</div>

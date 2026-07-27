@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_07_27_000006) do
+ActiveRecord::Schema[8.1].define(version: 2026_07_27_000007) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -47,6 +47,18 @@ ActiveRecord::Schema[8.1].define(version: 2026_07_27_000006) do
     t.index ["onboarding_id"], name: "index_personal_details_on_onboarding_id", unique: true
   end
 
+  create_table "preferences", force: :cascade do |t|
+    t.string "billing_period"
+    t.datetime "completed_at"
+    t.datetime "created_at", null: false
+    t.boolean "newsletter_opt_in", default: false, null: false
+    t.bigint "onboarding_id", null: false
+    t.string "plan"
+    t.datetime "updated_at", null: false
+    t.index ["onboarding_id"], name: "index_preferences_on_onboarding_id", unique: true
+  end
+
   add_foreign_key "addresses", "onboardings"
   add_foreign_key "personal_details", "onboardings"
+  add_foreign_key "preferences", "onboardings"
 end
