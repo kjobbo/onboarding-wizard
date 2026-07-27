@@ -1,31 +1,26 @@
 # Files in the config/locales directory are used for internationalization and
-# are automatically loaded by Rails. If you want to use locales other than
-# English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t "hello"
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t("hello") %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more about the API, please read the Rails Internationalization guide
-# at https://guides.rubyonrails.org/i18n.html.
-#
-# Be aware that YAML interprets the following case-insensitive strings as
-# booleans: `true`, `false`, `on`, `off`, `yes`, `no`. Therefore, these strings
-# must be quoted to be interpreted as strings. For example:
-#
-#     en:
-#       "yes": yup
-#       enabled: "ON"
+# are automatically loaded by Rails. See the Rails Internationalization guide:
+# https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  app:
+    name: "Onboarding Wizard"
+
+  onboardings:
+    steps:
+      personal_details: "Personal details"
+      address: "Address"
+      preferences: "Preferences"
+      summary: "Summary"
+
+    new:
+      title: "Get started — Onboarding Wizard"
+      tagline: "Subscriptions, simplified"
+      heading: "Welcome aboard"
+      intro: "Set up your subscription in a few quick steps — tell us who you are, where you live, and the plan that suits you."
+      sign_up: "Sign up"
+      reassurance: "Takes about two minutes. No payment details required."
+
+    show:
+      heading: "Welcome!"
+      description_html: "Wizard steps are coming next. You are on the %{step} step."

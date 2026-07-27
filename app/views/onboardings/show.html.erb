@@ -1,0 +1,9 @@
+<%# Temporary placeholder: replaced by real wizard step screens in the next increment. %>
+<div class="w-full max-w-xl mx-auto text-center">
+  <h1 class="text-3xl font-bold tracking-tight text-gray-900"><%= t(".heading") %></h1>
+  <p class="mt-4 text-gray-600">
+    <%= t(".description_html",
+          step: tag.span(t("onboardings.steps.#{@onboarding.current_step}").downcase,
+                         class: "font-semibold")) %>
+  </p>
+</div>
