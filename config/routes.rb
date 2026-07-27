@@ -12,5 +12,9 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "onboardings#new"
 
-  resource :onboarding, only: %i[new create show]
+  resource :onboarding, only: %i[new create show] do
+    scope module: :onboardings do
+      resource :personal_details, only: %i[show update]
+    end
+  end
 end

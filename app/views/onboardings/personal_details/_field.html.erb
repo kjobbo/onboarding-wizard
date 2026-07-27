@@ -1,0 +1,12 @@
+<%# locals: (form:, attribute:, type: :text_field) -%>
+<% errors = form.object.errors %>
+<div>
+  <%= form.label attribute, class: "block text-sm font-medium text-gray-900" %>
+  <%= form.public_send(type, attribute,
+        class: "mt-1 block w-full rounded-lg border px-3 py-2 shadow-sm focus:outline-2
+                #{errors.key?(attribute) ? 'border-red-400 focus:outline-red-500'
+                                         : 'border-gray-300 focus:outline-indigo-600'}") %>
+  <% if errors.key?(attribute) %>
+    <p class="mt-1 text-sm text-red-600"><%= errors.full_messages_for(attribute).first %></p>
+  <% end %>
+</div>

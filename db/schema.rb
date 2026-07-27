@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_07_27_000004) do
+ActiveRecord::Schema[8.1].define(version: 2026_07_27_000005) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -22,4 +22,17 @@ ActiveRecord::Schema[8.1].define(version: 2026_07_27_000004) do
     t.datetime "updated_at", null: false
     t.index ["token"], name: "index_onboardings_on_token", unique: true
   end
+
+  create_table "personal_details", force: :cascade do |t|
+    t.datetime "completed_at"
+    t.datetime "created_at", null: false
+    t.string "email"
+    t.string "first_name"
+    t.string "last_name"
+    t.bigint "onboarding_id", null: false
+    t.datetime "updated_at", null: false
+    t.index ["onboarding_id"], name: "index_personal_details_on_onboarding_id", unique: true
+  end
+
+  add_foreign_key "personal_details", "onboardings"
 end

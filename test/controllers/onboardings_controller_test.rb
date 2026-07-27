@@ -31,12 +31,14 @@ class OnboardingsControllerTest < ActionDispatch::IntegrationTest
     assert_equal existing, Onboarding.find_by(token: session[:onboarding_token])
   end
 
-  test "the session identifies the onboarding on subsequent requests" do
+  test "after signing up the visitor is routed to their current step" do
     post onboarding_path
     follow_redirect!
 
+    assert_redirected_to onboarding_personal_details_path
+    follow_redirect!
     assert_response :success
-    assert_select "body", text: /personal details/i
+    assert_select "form[action=?]", onboarding_personal_details_path
   end
 
   test "signing up with a stale token creates a fresh onboarding with a new token" do
