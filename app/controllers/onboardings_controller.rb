@@ -11,9 +11,10 @@ class OnboardingsController < ApplicationController
     redirect_to onboarding_path, status: :see_other
   end
 
-  # Routes the visitor to their current step; the placeholder below the
-  # redirect renders for steps that do not have screens yet.
+  # Routes the visitor to their current step; the placeholder renders for
+  # steps that do not have screens yet.
   def show
-    redirect_to onboarding_personal_details_path if @onboarding.current_step == "personal_details"
+    step_path = "onboarding_#{@onboarding.current_step}_path"
+    redirect_to public_send(step_path) if respond_to?(step_path)
   end
 end

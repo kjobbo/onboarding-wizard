@@ -9,15 +9,11 @@
     <%= form_with model: @personal_details, scope: :personal_details,
                   url: onboarding_personal_details_path, method: :patch,
                   class: "mt-8 space-y-6" do |form| %>
-      <%= render "field", form: form, attribute: :first_name %>
-      <%= render "field", form: form, attribute: :last_name %>
-      <%= render "field", form: form, attribute: :email, type: :email_field %>
+      <%= render "onboardings/field", form: form, attribute: :first_name %>
+      <%= render "onboardings/field", form: form, attribute: :last_name %>
+      <%= render "onboardings/field", form: form, attribute: :email, type: :email_field %>
 
-      <%= form.submit t(".continue"),
-            class: "w-full rounded-lg bg-indigo-600 px-8 py-3 text-base font-semibold
-                    text-white shadow-sm transition hover:bg-indigo-500 cursor-pointer
-                    focus-visible:outline-2 focus-visible:outline-offset-2
-                    focus-visible:outline-indigo-600" %>
+      <%= form.submit t(".continue"), class: "w-full btn-primary" %>
     <% end %>
   </div>
 </div>

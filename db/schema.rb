@@ -10,9 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_07_27_000005) do
+ActiveRecord::Schema[8.1].define(version: 2026_07_27_000006) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
+
+  create_table "addresses", force: :cascade do |t|
+    t.string "address_line_1"
+    t.string "address_line_2"
+    t.string "city"
+    t.datetime "completed_at"
+    t.string "country"
+    t.datetime "created_at", null: false
+    t.bigint "onboarding_id", null: false
+    t.string "postcode"
+    t.datetime "updated_at", null: false
+    t.index ["onboarding_id"], name: "index_addresses_on_onboarding_id", unique: true
+  end
 
   create_table "onboardings", force: :cascade do |t|
     t.datetime "completed_at"
@@ -34,5 +47,6 @@ ActiveRecord::Schema[8.1].define(version: 2026_07_27_000005) do
     t.index ["onboarding_id"], name: "index_personal_details_on_onboarding_id", unique: true
   end
 
+  add_foreign_key "addresses", "onboardings"
   add_foreign_key "personal_details", "onboardings"
 end

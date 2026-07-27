@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resource :onboarding, only: %i[new create show] do
     scope module: :onboardings do
       resource :personal_details, only: %i[show update]
+      resource :address, only: %i[show update]
     end
   end
 end

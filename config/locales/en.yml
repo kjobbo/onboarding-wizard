@@ -12,6 +12,12 @@ en:
         first_name: "First name"
         last_name: "Last name"
         email: "Email address"
+      onboardings/address:
+        address_line_1: "Address line 1"
+        address_line_2: "Address line 2 (optional)"
+        city: "City"
+        postcode: "Postcode"
+        country: "Country"
 
   onboardings:
     steps:
@@ -38,4 +44,13 @@ en:
         step_badge: "Step 1 of 4"
         heading: "Tell us about yourself"
         intro: "We just need a few basics to get your account started."
+        continue: "Continue"
+
+    addresses:
+      show:
+        title: "Address — Onboarding Wizard"
+        step_badge: "Step 2 of 4"
+        heading: "Where do you live?"
+        intro: "We use your address for billing and nothing else."
+        back: "Back"
         continue: "Continue"
